@@ -1,25 +1,32 @@
-# We need to start from somewhere
-FROM kalilinux/kali-rolling:latest
-ENV DEBIAN_FRONTEND noninteractive
+FROM kasmweb/kali-rolling-desktop:1.14.0
+USER root
 
-# Bring everything up to date
-RUN apt update; apt -y dist-upgrade
+ENV HOME /home/kasm-default-profile
+ENV STARTUPDIR /dockerstartup
+ENV INST_SCRIPTS $STARTUPDIR/install
+WORKDIR $HOME
 
-# Install whatever we desire
-RUN apt -y install \
-zsh \
-sudo
-# I need xll-tools
+######### Customize Container Here ###########
 
-# Here you can run additional commands to configure the box
-# Create our new user and add it to some groups
-RUN useradd -G sudo stargazer -s /bin/zsh -m
-RUN usermod -aG sudo stargazer
-# Create a default password so we can login
-RUN echo "stargazer:stargazer" | chpasswd
+# RUN apt update && apt upgrade
+# Install OpenVPN 
+RUN apt-get update && \ 
+    apt-get install -y openvpn
 
-# Clean up packages
-RUN apt-get -y autoremove
+RUN apt -y install dirbuster
 
-# Jump to the shell
-ENTRYPOINT zsh $@
+RUN apt-get update \
+    && apt-get install -y sudo \
+    && echo 'kasm-user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
+    && rm -rf /var/lib/apt/list/*
+
+######### End Customizations ###########
+
+RUN chown 1000:0 $HOME
+RUN $STARTUPDIR/set_user_permission.sh $HOME
+
+ENV HOME /home/kasm-user
+WORKDIR $HOME
+RUN mkdir -p $HOME && chown -R 1000:0 $HOME
+
+USER 1000

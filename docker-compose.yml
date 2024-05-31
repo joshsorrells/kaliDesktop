@@ -2,17 +2,14 @@ version: "3.7"
 
 services:
   kali:
-    build: .
+    image: 0d810ab84d78
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    container_name: kali
-    network_mode: "host"
-    privileged: true
+    container_name: kasm_kali
     restart: unless-stopped
-    hostname: kali
+    shm_size: 512m
     environment:
-      - DISPLAY=host.docker.internal:0
-      - TERM=xterm-256color
-    cap_add:
-      - NET_ADMIN
-      - SYS_ADMIN
+      - VNC_PW=password
+    ports:
+      - "6901:6901"
+
