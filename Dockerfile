@@ -14,7 +14,9 @@ RUN apt-get update && \
     apt-get install -y openvpn
 
 RUN apt -y install dirbuster \
-dirsearch
+dirsearch \
+iputils-ping \
+nano
 
 RUN apt-get update \
     && apt-get install -y sudo \
