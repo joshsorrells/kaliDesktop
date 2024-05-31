@@ -13,7 +13,8 @@ WORKDIR $HOME
 RUN apt-get update && \ 
     apt-get install -y openvpn
 
-RUN apt -y install dirbuster
+RUN apt -y install dirbuster \
+dirsearch
 
 RUN apt-get update \
     && apt-get install -y sudo \
