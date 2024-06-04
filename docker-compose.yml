@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
     shm_size: 512m
     environment:
-      - VNC_PW=password
+      - VNC_PW=${password}
     ports:
       - "6901:6901"
     volumes:
