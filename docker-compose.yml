@@ -12,6 +12,8 @@ services:
       - VNC_PW=password
     ports:
       - "6901:6901"
+    volumes:
+      - ./Shared:/home/kasm-user/Shared
     cap_add:
       - NET_ADMIN
     devices:
