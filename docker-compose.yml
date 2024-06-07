@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   kali:
-    image: 493f541b6da2
+    image: dd27c3bb93b0
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     container_name: kasm_kali
@@ -13,7 +13,7 @@ services:
     ports:
       - "6901:6901"
     volumes:
-      - ./Shared:/home/kasm-user/Shared
+      - ./Shared:/home/kasm-user/
     cap_add:
       - NET_ADMIN
     devices:

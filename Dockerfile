@@ -16,17 +16,13 @@ RUN apt-get update && \
 #Install tools easily with APT
 RUN apt -y install dirbuster \
 dirsearch burpsuite ffuf \
-iputils-ping hashcat \
-nano
+iputils-ping hashcat sliver \
+nano seclists
 
 RUN apt-get update \
     && apt-get install -y sudo \
     && echo 'kasm-user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && rm -rf /var/lib/apt/list/*
-
-#Installing Sliver as my C2 framework of choice
-RUN curl https://sliver.sh/install | bash
-
 
 ######### End Customizations ###########
 
