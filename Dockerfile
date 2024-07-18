@@ -17,7 +17,10 @@ RUN apt-get update && \
 RUN apt -y install dirbuster \
 dirsearch burpsuite ffuf \
 iputils-ping hashcat sliver \
-nano seclists
+nano seclists pip netcat-traditional \
+linpeas wordlists dnsutils
+
+RUN pip install git+https://github.com/guelfoweb/knock.git
 
 RUN apt-get update \
     && apt-get install -y sudo \

@@ -14,6 +14,7 @@ services:
       - "6901:6901"
     volumes:
       - ./Shared:/home/kasm-user/
+      - /Users/joshuasorrells/dev/pptx-to-anki:/home/kasm-user/Downloads
     cap_add:
       - NET_ADMIN
     devices:
