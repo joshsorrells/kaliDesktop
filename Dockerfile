@@ -18,7 +18,7 @@ RUN apt -y install dirbuster \
 dirsearch burpsuite ffuf \
 iputils-ping hashcat sliver \
 nano seclists pip netcat-traditional \
-linpeas wordlists dnsutils
+peass wordlists dnsutils netcat-traditional
 
 RUN pip install git+https://github.com/guelfoweb/knock.git
 
