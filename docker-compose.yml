@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   kali:
-    image: dd27c3bb93b0
+    build: .
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     container_name: kasm_kali
