@@ -14,7 +14,7 @@ RUN apt-get update && \
     apt-get install -y openvpn
 
 #Install tools easily with APT
-RUN apt -y install dirbuster \
+RUN apt update && apt -y install dirbuster \
 dirsearch burpsuite ffuf \
 iputils-ping hashcat sliver \
 nano seclists pip netcat-traditional \
