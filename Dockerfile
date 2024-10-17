@@ -18,7 +18,7 @@ RUN apt update && apt -y install dirbuster \
 dirsearch burpsuite ffuf \
 iputils-ping hashcat sliver \
 nano seclists pip netcat-traditional \
-peass wordlists dnsutils netcat-traditional
+peass wordlists dnsutils netcat-traditional freerdp2-x11
 
 RUN pip install git+https://github.com/guelfoweb/knock.git
 
