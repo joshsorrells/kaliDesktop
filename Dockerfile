@@ -19,7 +19,12 @@ dirsearch burpsuite ffuf \
 iputils-ping hashcat sliver \
 nano seclists pip netcat-traditional \
 peass wordlists dnsutils netcat-traditional freerdp2-x11 \
-proxychains smbmap netexec
+proxychains smbmap
+
+# Netexec install
+RUN sudo apt install pipx git
+RUN pipx ensurepath
+RUN pipx install git+https://github.com/Pennyw0rth/NetExec
 
 RUN pip install git+https://github.com/guelfoweb/knock.git
 
