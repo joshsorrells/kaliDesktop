@@ -22,9 +22,11 @@ peass wordlists dnsutils netcat-traditional freerdp2-x11 \
 proxychains smbmap
 
 # Netexec install
-RUN sudo apt install pipx git
-RUN pipx ensurepath
+RUN sudo apt install pipx git rustup
+RUN rustup default stable
+RUN pip3 install aardwolf --break-system-packages
 RUN pipx install git+https://github.com/Pennyw0rth/NetExec
+RUN export PATH=$PATH:/home/kasm-user/.local/bin
 
 RUN pip install git+https://github.com/guelfoweb/knock.git
 
